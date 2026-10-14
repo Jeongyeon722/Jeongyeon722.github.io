@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>김정연 포트폴리오</title>
+<meta name="description" content="덕성여자대학교 디지털소프트웨어공학부 김정연 — 퍼징, LLM 기반 취약점 분석 자동화">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0f172a; --body:#334155; --sub:#64748b; --faint:#94a3b8;
+    --line:#e2e8f0; --hair:#f1f5f9; --wash:#f8fafc;
+    --accent:#2563eb;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+  body{background:#fff;color:var(--body);font-family:"Pretendard Variable",Pretendard,-apple-system,system-ui,sans-serif;font-size:15px;line-height:1.7;word-break:keep-all;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+  ::selection{background:#e0e7ff}
+  .mono{font-family:"JetBrains Mono",ui-monospace,monospace}
+  .wrap{max-width:860px;margin:0 auto;padding:0 24px}
+
+  /* nav */
+  nav{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.9);backdrop-filter:blur(6px);border-bottom:1px solid var(--hair)}
+  nav .wrap{height:56px;display:flex;align-items:center;justify-content:space-between}
+  nav .name{font-weight:800;color:var(--ink);font-size:15px;letter-spacing:-.01em}
+  nav .menu{display:flex;gap:22px;font-size:13px;font-weight:600;color:var(--faint)}
+  nav .menu a:hover{color:var(--accent)}
+  @media (max-width:560px){nav .menu{gap:14px;font-size:12px}nav .menu .opt{display:none}}
+
+  main.wrap{padding-top:88px}
+  @media (max-width:680px){main.wrap{padding-top:48px}}
+
+  /* header */
+  header.intro{max-width:640px}
+  .hello{font-size:clamp(28px,4.4vw,38px);font-weight:800;color:var(--ink);letter-spacing:-.035em;line-height:1.3}
+  .lead{margin-top:14px;color:var(--sub);font-size:16px}
+  .icons{margin-top:28px;display:flex;gap:10px}
+  .icons a{width:40px;height:40px;border-radius:12px;background:var(--ink);color:#fff;display:inline-flex;align-items:center;justify-content:center;transition:background .2s}
+  .icons a:hover{background:var(--accent)}
+  .icons svg{width:16px;height:16px}
+  header.intro .facts{margin-top:52px;display:grid;grid-template-columns:repeat(3,auto);gap:28px 56px;justify-content:start}
+  .label{font-size:12px;font-weight:700;color:var(--accent);margin-bottom:6px;letter-spacing:.02em}
+  .strong{color:var(--ink);font-weight:600}
+  .meta-row{display:flex;gap:10px;align-items:center;font-size:13.5px;color:var(--faint);margin-top:2px}
+  .meta-row .bar{color:var(--line)}
+  ul.dots{list-style:none;font-size:14px;font-weight:500;color:var(--body)}
+  ul.dots li::before{content:"• ";color:var(--faint)}
+  @media (max-width:680px){header.intro .facts{grid-template-columns:1fr;gap:24px}}
+  /* sections */
+  section{border-top:1px solid var(--hair);padding-top:64px;margin-top:64px}
+  section > h2{font-size:15px;font-weight:800;color:var(--accent);margin-bottom:32px;letter-spacing:-.01em}
+  .list{display:flex;flex-direction:column;gap:36px}
+  .item{padding-left:22px;border-left:1px solid var(--line);transition:border-color .25s}
+  .item:hover{border-left-color:var(--accent)}
+  .kicker{font-size:12px;font-weight:600;color:var(--faint);margin-bottom:6px;display:flex;flex-wrap:wrap;gap:8px}
+  .item h3{font-size:18px;font-weight:700;color:var(--ink);line-height:1.4;letter-spacing:-.02em;margin-bottom:6px}
+  .item h3 a:hover{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+  .item p.desc{font-size:14.5px;color:var(--body)}
+  .item ul.pts{margin-top:6px;padding-left:18px;font-size:14.5px}
+  .item ul.pts li::marker{color:var(--faint)}
+  .item ul.pts li+li{margin-top:2px}
+  .tags{margin-top:10px;font-size:12px;color:var(--faint)}
+  .links{margin-top:8px;display:flex;gap:14px;font-size:13px;font-weight:600}
+  .links a{color:var(--accent)}
+  .links a:hover{text-decoration:underline;text-underline-offset:3px}
+  .src{font-size:12.5px;color:var(--faint);font-style:italic;margin-top:2px}
+
+  /* skills */
+  .skills{display:grid;grid-template-columns:140px 1fr;row-gap:12px;column-gap:24px;font-size:14.5px}
+  .skills dt{font-weight:700;color:var(--ink)}
+  .skills dd{color:var(--body)}
+  @media (max-width:560px){.skills{grid-template-columns:1fr;row-gap:2px}.skills dd{margin-bottom:12px}}
+
+  footer{margin-top:120px;padding:28px 0 40px;border-top:1px solid var(--hair);text-align:center;font-size:11px;letter-spacing:.3em;color:#cbd5e1;font-weight:700}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="name" href="#top">김정연</a>
+    <div class="menu">
+      <a class="opt" href="#top">홈</a>
+      <a href="#projects">프로젝트</a>
+      <a href="#papers">논문 스터디</a>
+      <a href="#awards">수상</a>
+      <a href="#activities">활동</a>
+      <a class="opt" href="#skills">기술</a>
+    </div>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <!-- 소개 -->
+  <header class="intro" id="top">
+    <p class="hello">안녕하세요,<br>AI와 보안을 공부하는 김정연입니다.</p>
+    <div class="icons">
+      <a href="mailto:20240787@duksung.ac.kr" aria-label="이메일" title="이메일">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+      </a>
+      <a href="https://github.com/Jeongyeon722" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
+        <svg fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.48 2 2 6.48 2 12.02c0 4.42 2.87 8.18 6.84 9.5.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.64-1.34-2.22-.25-4.56-1.11-4.56-4.95 0-1.09.39-1.99 1.03-2.69-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.03A9.56 9.56 0 0112 6.84c.85 0 1.7.12 2.5.34 1.91-1.3 2.75-1.03 2.75-1.03.55 1.38.2 2.4.1 2.65.64.7 1.03 1.6 1.03 2.69 0 3.85-2.34 4.7-4.57 4.94.36.31.68.92.68 1.86v2.75c0 .27.18.58.69.48A10.02 10.02 0 0022 12.02C22 6.48 17.52 2 12 2z"/></svg>
+      </a>
+      <a href="https://nightoso.tistory.com/" target="_blank" rel="noopener" aria-label="기술 블로그" title="기술 블로그">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.41-9.41a2 2 0 112.82 2.82L11.83 15H9v-2.83l8.59-8.58z"/></svg>
+      </a>
+    </div>
+    <div class="facts">
+      <div>
+        <p class="label">학력</p>
+        <p class="strong">덕성여자대학교</p>
+        <div class="meta-row"><span>디지털소프트웨어공학부</span><span class="bar">|</span><span>3학년</span></div>
+      </div>
+      <div>
+        <p class="label">관심 분야</p>
+        <ul class="dots">
+          <li>퍼징 · 크래시 트리아지</li>
+          <li>LLM 기반 취약점 분석 자동화</li>
+        </ul>
+      </div>
+      <div>
+        <p class="label">자격증</p>
+        <p class="strong">SQLD</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- 프로젝트 -->
+  <section id="projects">
+    <h2>프로젝트</h2>
+    <div class="list">
+
+      <article class="item">
+        <div class="kicker"><span>LLM × 보안</span><span>•</span><span>BackDoor</span></div>
+        <h3><a href="https://github.com/inyeongjang/VIPER" target="_blank" rel="noopener">VIPER: LLM 기반 취약점 PoC 생성·검증 파이프라인</a></h3>
+        <ul class="pts">
+          <li>대상 저장소를 클론해 Syft로 SBOM 생성, Grype로 취약점 탐지, CodeQL로 코드 분석까지 자동으로 이어지는 파이프라인</li>
+          <li>취약점 유형 분류와 관련 함수·코드 조각 선택으로 LLM에 줄 맥락을 구성하고, 로컬 LLM(Ollama)으로 PoC 생성</li>
+          <li>스캐너는 CVE를 탐지했지만 실제로는 익스플로잇이 불가능한 사례를 negative case 벤치마크로 수집해 판단 정확도 평가</li>
+        </ul>
+        <p class="tags">Python · Ollama · Syft · Grype · CodeQL · Docker</p>
+      </article>
+
+      <article class="item">
+        <div class="kicker"><span>LLM × 보안</span><span>•</span><span>KISIA ICT 융합 보안 크루</span></div>
+        <h3>LLM 기반 퍼징 하네스 자동 생성</h3>
+        <p class="desc">퍼징에서 가장 손이 많이 가는 하네스 작성 단계를 LLM으로 자동화하고, LLM을 활용한 취약점 분석 흐름을 실험 진행중</p>
+        <p class="tags">LLM · Fuzzing Harness · 취약점 분석</p>
+      </article>
+
+      <article class="item">
+        <div class="kicker"><span>퍼징</span><span>•</span><span>AI8_FUZZING_TEAM</span></div>
+        <h3>알집(ALZip) 파일 포맷 파서 퍼징</h3>
+        <ul class="pts">
+          <li>ESTsoft 알집의 파서 DLL(Alz.dll 등)을 WinAFL + DynamoRIO로 퍼징</li>
+          <li>팀 하네스를 참고해 경량 dumb 퍼저와 ASAN 기반 크래시 트리아지 킷을 직접 만들어 레포에 기여</li>
+        </ul>
+        <p class="tags">WinAFL · DynamoRIO · ASAN · Windows</p>
+      </article>
+
+      <article class="item">
+        <div class="kicker"><span>데이터 · ML</span><span>•</span><span>BackDoor</span></div>
+        <h3><a href="https://github.com/DSWU-BackDoor/2026_OSM" target="_blank" rel="noopener">OpenStreetMap 조작 공격(Vandalism) 탐지</a></h3>
+        <ul class="pts">
+          <li>누구나 편집할 수 있는 오픈 지도 OSM에서 스팸·자동 편집(Import)·태깅 오류 같은 조작을 객체 단위로 탐지하는 연구</li>
+          <li>changeset에서 객체(node·way·relation)와 이전 버전 이력을 수집하는 데이터 파이프라인 구현</li>
+          <li>기하·태그 변화와 편집 패턴을 수치화해 LightGBM용 피처와 GNN용 그래프 데이터셋 구축</li>
+        </ul>
+        <p class="tags">Python · OSM API · LightGBM · GNN</p>
+      </article>
+
+      <article class="item">
+        <div class="kicker"><span>웹 개발</span><span>•</span><span>BackDoor · 팀 리드</span></div>
+        <h3><a href="https://github.com/DSWU-BackDoor/campaign" target="_blank" rel="noopener">BackDoor 개인정보 진단 캠페인 사이트</a></h3>
+        <ul class="pts">
+          <li>12문항 체크리스트로 개인정보 보호 수준을 진단하고, 레이더 차트 결과와 맞춤 솔루션·실천 서약까지 제공하는 웹앱 (3인 개발)</li>
+          <li>결과를 등급별 HTML 메일로 발송 (EmailJS)</li>
+        </ul>
+        <p class="tags">Next.js · Supabase · Chart.js · EmailJS</p>
+      </article>
+
+      <article class="item">
+        <div class="kicker"><span>웹 보안</span><span>•</span><span>WUISP</span></div>
+        <h3>웹 보안 점검 브라우저 확장 프로그램</h3>
+        <ul class="pts">
+          <li>HTTP 응답 헤더 기반 패시브 분석으로 CSP, HSTS, X-Frame-Options 등 보안 헤더 설정을 실시간 점검</li>
+          <li>HTTPS 사용 여부와 혼합 콘텐츠(HTTP 리소스) 탐지, OWASP ZAP 한계 분석과 함께 진행</li>
+        </ul>
+        <p class="tags">Chrome Extension · Security Headers · OWASP ZAP</p>
+        <div class="links"><a href="https://nightoso.tistory.com/19" target="_blank" rel="noopener">개발 기록</a></div>
+      </article>
+
+    </div>
+  </section>
+
+
+  <section id="papers">
+    <h2 스터디</h2>
+    <div class="list">
+      <article class="item">
+        <div class="kicker"><span>LLM 보안</span><span>•</span><span>2025.10</span></div>
+        <h3><a href="https://nightoso.tistory.com/9" target="_blank" rel="noopener">A Survey on Large Language Model (LLM) Security and Privacy: The Good, The Bad, and The Ugly</a></h3>
+        <p class="desc">LLM이 보안에 주는 이점, LLM이 만드는 위협, LLM 자체의 취약점을 세 갈래로 정리</p>
+      </article>
+      <article class="item">
+        <div class="kicker"><span>모바일 포렌식</span><span>•</span><span>2025.11</span></div>
+        <h3><a href="https://nightoso.tistory.com/13" target="_blank" rel="noopener">A new model for forensic data extraction from encrypted mobile devices</a></h3>
+        <p class="desc">NIST 모바일 데이터 추출 5단계와 암호화된 기기에서의 새로운 추출 모델</p>
+      </article>
+      <article class="item">
+        <div class="kicker"><span>악성코드 탐지</span><span>•</span><span>2025.11</span></div>
+        <h3><a href="https://nightoso.tistory.com/14" target="_blank" rel="noopener">A Multimodal Deep Learning Method for Android Malware Detection Using Various Features</a></h3>
+        <p class="desc">여러 정적 특징을 함께 쓰는 멀티모달 딥러닝 안드로이드 악성코드 탐지 프레임워크</p>
+      </article>
+      <article class="item">
+        <div class="kicker"><span>LLM 에이전트</span><span>•</span><span>2026.01</span></div>
+        <h3><a href="https://nightoso.tistory.com/20" target="_blank" rel="noopener">Creation, evaluation and self-validation of simulation models with large language models</a></h3>
+        <p class="desc">LLM이 만든 시뮬레이션 모델을 물리 결과로 자동 평가하고, LLM이 스스로 검증할 수 있는지 분석</p>
+      </article>
+      <article class="item">
+        <div class="kicker"><span>웹 보안</span><span>•</span><span>WUISP</span></div>
+        <h3>bWAPP 웹 취약점 분석 스터디</h3>
+        <p class="desc">bWAPP 환경에서 SQL Injection과 Reflected XSS를 단계별로 분석함.</p>
+        <div class="links"><a href="https://nightoso.tistory.com/18" target="_blank" rel="noopener">보고서</a><a href="https://nightoso.tistory.com/5" target="_blank" rel="noopener">SQLi 실습 기록</a></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 수상 및 장학 -->
+  <section id="awards">
+    <h2>수상 및 장학</h2>
+    <div class="list">
+      <article class="item">
+        <div class="kicker"><span>수상</span><span>•</span><span>2025</span></div>
+        <h3><a href="https://github.com/2025-DS-Hackathon/FE" target="_blank" rel="noopener">교내 해커톤 장려상: GENBRIDGE</a></h3>
+        <p class="desc">청년과 시니어가 서로의 재능을 교환하도록 랜덤 매칭해 주는 세대 초월 재능 교환 플랫폼</p>
+        <p class="tags">React · 카카오 OAuth · 프론트엔드 참여</p>
+        <p class="src">덕성여자대학교</p>
+      </article>
+      <article class="item">
+        <div class="kicker"><span>장학</span><span>•</span><span>2024 – 현재</span></div>
+        <h3>국가 이공계 우수 장학금</h3>
+        <p class="src">한국장학재단</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- 활동 -->
+  <section id="activities">
+    <h2>기타 활동</h2>
+    <div class="list">
+      <article class="item">
+        <div class="kicker"><span>동아리</span></div>
+        <h3>BackDoor 보안 동아리</h3>
+        <p class="desc">덕성여대 보안 동아리. 캠페인 사이트 팀 리드, VIPER·OSM 프로젝트, 카드뉴스 제작, 논문 스터디에 참여</p>
+      </article>
+      <article class="item">
+        <div class="kicker"><span>교육 프로그램</span></div>
+        <h3>KISIA ICT 융합 보안 크루</h3>
+        <p class="desc">LLM 기반 취약점 분석과 퍼징 하네스 자동 생성 연구 진행중</p>
+      </article>
+      <article class="item">
+        <div class="kicker"><span>봉사</span></div>
+        <h3>아이코딩 봉사</h3>
+        <p class="desc">초등학생 대상으로 엔트리·스크래치 코딩 수업 진행</p>
+        <div class="links"><a href="https://nightoso.tistory.com/21" target="_blank" rel="noopener">봉사 기록</a></div>
+      </article>
+
+      <article class="item">
+        <div class="kicker"><span>콘텐츠</span><span>•</span><span>BackDoor</span></div>
+        <h3>보안 카드뉴스 Vol.02: AI에게 권한을 줬더니, 내 파일까지 건드린다면?</h3>
+        <p class="desc">AI 에이전트 권한 남용과 프롬프트 인젝션 위험을 일반 사용자 눈높이로 정리한 인스타그램 카드뉴스를 기획·제작</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- 기술 -->
+  <section id="skills">
+    <h2>기술</h2>
+    <dl class="skills">
+      <dt>취약점 분석</dt><dd>WinAFL, DynamoRIO, ASAN, Ghidra, Syft, Grype, CodeQL</dd>
+      <dt>LLM · ML</dt><dd>Ollama, LLM 기반 PoC·하네스 생성, LightGBM, GNN</dd>
+      <dt>웹</dt><dd>Next.js, React, Chart.js, Chrome Extension</dd>
+      <dt>웹 보안</dt><dd>SQL Injection, OWASP ZAP</dd>
+      <dt>언어</dt><dd>Python, JavaScript, SQL</dd>
+    </dl>
+  </section>
+
+  <footer class="mono">KIM JEONGYEON</footer>
+</main>
+
+</body>
+</html>
